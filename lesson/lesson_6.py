@@ -48,14 +48,39 @@ Ask if the user wants to invite someone more.
 Keep prompting for names until the user will answer in the negative, 
 and print the number of invitees.
 """
-count = 0
+# count = 0
+#
+# while True:
+#     person = input("Enter name to Invite person: ")
+#     count = count + 1
+#     print(f"{person} has been invited")
+#     if input("Invite one more? 'y|n'") == 'y':
+#         continue
+#     else:
+#         break
+# print(f"{count} guest was invited")
 
-while True:
-    person = input("Enter name to Invite person: ")
-    count = count + 1
-    print(f"{person} has been invited")
-    if input("Invite one more? 'y|n'") == 'y':
-        continue
-    else:
-        break
-print(f"{count} guest was invited")
+"""
+Create a variable called compnum and assign it value 50. 
+Prompt the user to enter a number. 
+Bye guess does not match with compnum value, 
+tell if it is greater or less compnum and prompt to enter another number. 
+If the entered value will match compnum,
+print the message "Well done, you took [attempts] attempts".
+"""
+compnum = 50
+userNum = int(input("Enter number: "))
+count = 1
+
+while userNum != compnum:
+    if userNum > compnum:
+        print("Enter num is high")
+        userNum = int(input("Enter over number: "))
+        count += 1
+    elif userNum < compnum:
+        print("Enter num is lower")
+        userNum = int(input("Enter over number: "))
+        count += 1
+
+print(f"«Well done, you took {count} attempts")
+
