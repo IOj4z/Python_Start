@@ -37,27 +37,62 @@ otherwise report that his number is greater or less than yours, and offer to cho
 If the user guessed right the second time, display the message "Correct",
 and if not, the message "You lose".
 """
-num = random.randint(1, 100)
+# num = random.randint(1, 100)
+#
+# count = 0
+# while True:
+#     if count >= 7:
+#         print('Your lose')
+#         break
+#     userNum = int(input("Guess number: "))
+#     count += 1
+#     if userNum == num and count >= 2:
+#         print("Correct")
+#         break
+#     elif userNum == num:
+#         print("Well done")
+#         break
+#     elif userNum > num:
+#         print("High")
+#     elif userNum < num:
+#         print("Low")
+#
+#
 
-count = 0
-while True:
-    if count >= 7:
-        print('Your lose')
-        break
-    userNum = int(input("Guess number: "))
-    count += 1
-    if userNum == num and count >= 2:
-        print("Correct")
-        break
-    elif userNum == num:
-        print("Well done")
-        break
-    elif userNum > num:
-        print("High")
-    elif userNum < num:
-        print("Low")
+
+"""
+Pick a random integer in the range from 1 to 10. 
+Prompt the user to enter a number and check if it matches the guess. 
+Keep prompting for numbers until the user enters a random number.
+"""
+# num = random.randint(1, 10)
+# while True:
+#     userNum = int(input("Guess number: "))
+#     if userNum == num:
+#         print("Correct")
+#         break
+#     elif userNum > num:
+#         print("High")
+#     elif userNum < num:
+#         print("Low")
 
 
-
-
-
+"""
+Write a math game in which the user
+must answer five questions. 
+Each question is constructed from two randomly 
+generated integers (for example, [num1] [num2]). 
+Prompt the user to enter answer. 
+If the user entered the correct answer, add one point in his favor. 
+At the end of the game, tell the user the number of correct answers.
+"""
+# bal = 0
+# num = 1
+# while num <= 5:
+#     num1 = random.randint(1, 10)
+#     num2 = random.randint(1, 10)
+#     res = num1 + num2
+#     if int(input("Please find number: ")) == res:
+#         bal += 1
+#     num += 1
+# print(" Your score is ", bal)
