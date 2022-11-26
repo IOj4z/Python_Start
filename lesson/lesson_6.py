@@ -68,19 +68,35 @@ tell if it is greater or less compnum and prompt to enter another number.
 If the entered value will match compnum,
 print the message "Well done, you took [attempts] attempts".
 """
-compnum = 50
-userNum = int(input("Enter number: "))
-count = 1
+# compnum = 50
+# userNum = int(input("Enter number: "))
+# count = 1
+#
+# while userNum != compnum:
+#     if userNum > compnum:
+#         print("Enter num is high")
+#         userNum = int(input("Enter over number: "))
+#         count += 1
+#     elif userNum < compnum:
+#         print("Enter num is lower")
+#         userNum = int(input("Enter over number: "))
+#         count += 1
+#
+# print(f"«Well done, you took {count} attempts")
 
-while userNum != compnum:
-    if userNum > compnum:
-        print("Enter num is high")
-        userNum = int(input("Enter over number: "))
-        count += 1
-    elif userNum < compnum:
-        print("Enter num is lower")
-        userNum = int(input("Enter over number: "))
-        count += 1
+"""
+Prompt the user to enter number from 10 to 20. 
+If the entered value is less than 10, display the message "Too low" and prompt to retry. 
+If the entered value is greater than 20, display the message "Too high" and prompt to retry. 
+repeat until it is entered value from the range from 10 to 20, then display a message Thank you.
+"""
 
-print(f"«Well done, you took {count} attempts")
+userNum = 0
 
+while userNum < 10 or userNum > 20:
+    userNum = int(input("Enter number from 10 to 20: "))
+    if userNum < 10:
+        print("Too low")
+    elif userNum > 20:
+        print("Too high")
+print("Thank you")
