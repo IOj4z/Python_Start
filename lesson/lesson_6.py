@@ -91,12 +91,34 @@ If the entered value is greater than 20, display the message "Too high" and prom
 repeat until it is entered value from the range from 10 to 20, then display a message Thank you.
 """
 
-userNum = 0
+# userNum = 0
+#
+# while userNum < 10 or userNum > 20:
+#     userNum = int(input("Enter number from 10 to 20: "))
+#     if userNum < 10:
+#         print("Too low")
+#     elif userNum > 20:
+#         print("Too high")
+# print("Thank you")
 
-while userNum < 10 or userNum > 20:
-    userNum = int(input("Enter number from 10 to 20: "))
-    if userNum < 10:
-        print("Too low")
-    elif userNum > 20:
-        print("Too high")
-print("Thank you")
+"""
+Print the lines "There are [counter] green bottles hanging on the wall, [counter] green bottles hanging on the wall, 
+and if 1 green bottle should accidentally fall". 
+Then print the question: "how many green bottles will be hanging on the wall?”. 
+If the user answers correctly, display the message "There will be [counter] green bottles hanging on the wall". 
+If the user answers incorrectly, display the message "No, try again" until the correct answer is given. 
+When the counter goes down to 0, print the message "There are no more green bottles hanging on the wall".
+"""
+num = 10
+while num > 0:
+    print("There are ", num, " green bottles hanging on the wall.")
+    print(num, " green bottles hanging on the wall.")
+    print("And if 1 green bottle should accidentally fall,")
+    num = num - 1
+    answer = int(input("How many green bottles will be hanging on the wall? "))
+    if answer == num:
+        print("There will be ", num, " green bottles hanging on the wall.")
+    else:
+        while answer != num:
+            answer = int(input("No, try again: "))
+            print("There are no more green bottles hanging on the wall.")
