@@ -96,3 +96,21 @@ At the end of the game, tell the user the number of correct answers.
 #         bal += 1
 #     num += 1
 # print(" Your score is ", bal)
+
+"""
+Print the names of five colors, randomly choose one, and ask the user to do the same. 
+If the user chooses the same the color that the program has chosen, display the message "Well done"; 
+otherwise, print an answer that hides a hint of the correct one color. 
+Prompt the user to try again; if the user and does not guess this time, 
+print the same hint again and offer to choose color (and so on until the user gives the correct answer).
+"""
+
+color = ['yellow', 'red', 'blue', 'green', 'black']
+compColor = random.choice(color)
+while True:
+    userColor = input("Find color: 'yellow' | 'red' | 'blue' | 'green' | 'black': ")
+    if userColor.lower() == compColor:
+        print('Well done')
+        break
+    else:
+        print(f"The first letter starts with {compColor[0]}")
