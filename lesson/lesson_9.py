@@ -44,11 +44,28 @@ Retry until the user will enter the message in upper case.
 Prompt the user to enter a name,
 and then tell how many vowels it has letters.
 """
-name = input('Enter name: ')
-count = 0
-name = name.lower()
-for x in name:
-    if x == "a" or x == "e" or x == "i" or x == "o" or x == "u":
-        count = count + 1
+# name = input('Enter name: ')
+# count = 0
+# name = name.lower()
+# for x in name:
+#     if x == "a" or x == "e" or x == "i" or x == "o" or x == "u":
+#         count = count + 1
+#
+# print("Vowels = ", count)
 
-print("Vowels = ", count)
+
+"""
+Prompt the user for a password, and then offer to enter it again. 
+If the two passwords match, print the message "Thank you". 
+If letters entered correctly, but differ in case, display the message "They must be in the same case";
+otherwise, the message "Incorrect" is displayed.
+"""
+
+pas = input('Enter password: ')
+confPas = input('Confirm password: ')
+if pas == confPas:
+    print('Thank you')
+elif pas.lower() == confPas.lower():
+    print('They must be in the same case')
+else:
+    print('Incorrect')
