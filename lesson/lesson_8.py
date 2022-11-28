@@ -81,11 +81,39 @@ After they will all three numbers are entered, ask if the user wants to add more
 If the answer is yes, invite him to add names until you get a "no" response. 
 After answering "no" print the number of people invited to the party
 """
+# invitedGuest = []
+# for i in range(4, 1, -1):
+#     invitedGuest.append(input("Enter name to invite: "))
+#
+# while input("Want invite more 'yes|no': ") == 'yes':
+#     invitedGuest.append(input("Enter name to invite: "))
+#
+# print(f"{len(invitedGuest)} was invited person to the party.")
+
+"""
+Modify Program 076 so that after entering the list of names, the program will output the complete list.
+Prompt the user to enter one of the names in the list and output the position of the name in the list. 
+Ask-See if the user wants this person to attend the party. 
+If the user answers "no", remove the item from the list and print the list again.
+"""
+
 invitedGuest = []
 for i in range(4, 1, -1):
     invitedGuest.append(input("Enter name to invite: "))
-
 while input("Want invite more 'yes|no': ") == 'yes':
-    invitedGuest.append(input("Enter name to invite: "))
-
+    invitedGuest.append(input("Enter one more name to invite: "))
+    if input("Want invite more 'yes|no': ") == 'yes':
+        break
 print(f"{len(invitedGuest)} was invited person to the party.")
+doesntWant = input('Enter one of the names in the list: ')
+print(f"{invitedGuest.index(doesntWant) + 1}: {doesntWant}")
+
+if input('Should this person to attend the party? "yes|no"') == 'no':
+    invitedGuest.remove(doesntWant)
+
+for person in invitedGuest:
+    print(f"{invitedGuest.index(person) + 1}: {person}")
+
+"""
+
+"""
