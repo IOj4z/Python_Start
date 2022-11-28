@@ -123,12 +123,31 @@ where it should be inserted into the list.
 Again print out a list in which all five gears are in new positions.
 """
 
-gears = ['On the road to the stars', 'A fine line', 'News', 'Top Gear in Burma']
-for gear in gears:
-    print(f'{gears.index(gear) + 1}: {gear}')
+# gears = ['On the road to the stars', 'A fine line', 'News', 'Top Gear in Burma']
+# for gear in gears:
+#     print(f'{gears.index(gear) + 1}: {gear}')
+#
+# newGear = input("Enter gear name: ")
+# positsionGear = int(input("Enter gear position: ")) - 1
+# gears.insert(positsionGear, newGear)
+# for gear in gears:
+#     print(f'{gears.index(gear) + 1}: {gear}')
 
-newGear = input("Enter gear name: ")
-positsionGear = int(input("Enter gear position: ")) - 1
-gears.insert(positsionGear, newGear)
-for gear in gears:
-    print(f'{gears.index(gear) + 1}: {gear}')
+"""
+Create an empty list named nums. 
+Offer the user sequentially enter numbers. 
+After entering add each number to the end of the nums list and output the list. 
+After the user enters three numbers, ask if he wants to leave last entered number in the list. 
+If the user answers "no", delete the last one element from the list. 
+Bring out list.
+"""
+
+nums = []
+while True:
+    for i in range(4, 1, -1):
+        nums.append(input("Enter numbers sequentially: "))
+
+    print(nums)
+    if input("Do you want to leave last entered number 'yes|no': ") == 'no':
+        print(nums[0:2])
+        break
