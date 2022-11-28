@@ -1,4 +1,3 @@
-
 """
 Offer the user enter your name and then print the length of the name.
 Ask for the last name and print the length of the last name.
@@ -26,7 +25,30 @@ Print it in such a way that each letter is followed by a hyphen — e.g. S-p-a-n
 Draw a line from your favorite poem and suggest the user to enter a start and end position. 
 Bring out characters in between.
 """
-favorite = input('Enter line from your favorite poem: ')
-x = int(input('Enter start pos. number: '))
-y = int(input('Enter end pos. number: '))
-print(favorite[x:y])
+# favorite = input('Enter line from your favorite poem: ')
+# x = int(input('Enter start pos. number: '))
+# y = int(input('Enter end pos. number: '))
+# print(favorite[x:y])
+
+"""
+Prompt the user to enter a word in upper case. 
+If a not all letters of the word will be in upper case, please ask re-enter the word. 
+Retry until the user will enter the message in upper case.
+"""
+
+# while not input('Enter word in upper case: ').isupper():
+#     continue
+
+
+"""
+Prompt the user to enter a name,
+and then tell how many vowels it has letters.
+"""
+name = input('Enter name: ')
+count = 0
+name = name.lower()
+for x in name:
+    if x == "a" or x == "e" or x == "i" or x == "o" or x == "u":
+        count = count + 1
+
+print("Vowels = ", count)
