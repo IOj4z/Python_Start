@@ -61,11 +61,18 @@ If letters entered correctly, but differ in case, display the message "They must
 otherwise, the message "Incorrect" is displayed.
 """
 
-pas = input('Enter password: ')
-confPas = input('Confirm password: ')
-if pas == confPas:
-    print('Thank you')
-elif pas.lower() == confPas.lower():
-    print('They must be in the same case')
-else:
-    print('Incorrect')
+# pas = input('Enter password: ')
+# confPas = input('Confirm password: ')
+# if pas == confPas:
+#     print('Thank you')
+# elif pas.lower() == confPas.lower():
+#     print('They must be in the same case')
+# else:
+#     print('Incorrect')
+#
+#
+
+word = input("Enter a word: ")[::-1]
+
+for w in word:
+    print(w)
