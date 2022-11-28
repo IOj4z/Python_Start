@@ -96,24 +96,39 @@ Prompt the user to enter one of the names in the list and output the position of
 Ask-See if the user wants this person to attend the party. 
 If the user answers "no", remove the item from the list and print the list again.
 """
-
-invitedGuest = []
-for i in range(4, 1, -1):
-    invitedGuest.append(input("Enter name to invite: "))
-while input("Want invite more 'yes|no': ") == 'yes':
-    invitedGuest.append(input("Enter one more name to invite: "))
-    if input("Want invite more 'yes|no': ") == 'yes':
-        break
-print(f"{len(invitedGuest)} was invited person to the party.")
-doesntWant = input('Enter one of the names in the list: ')
-print(f"{invitedGuest.index(doesntWant) + 1}: {doesntWant}")
-
-if input('Should this person to attend the party? "yes|no"') == 'no':
-    invitedGuest.remove(doesntWant)
-
-for person in invitedGuest:
-    print(f"{invitedGuest.index(person) + 1}: {person}")
+#
+# invitedGuest = []
+# for i in range(4, 1, -1):
+#     invitedGuest.append(input("Enter name to invite: "))
+# while input("Want invite more 'yes|no': ") == 'yes':
+#     invitedGuest.append(input("Enter one more name to invite: "))
+#     if input("Want invite more 'yes|no': ") == 'yes':
+#         break
+#
+# print(f"{len(invitedGuest)} was invited person to the party.")
+# doesntWant = input('Enter one of the names in the list: ')
+# print(f"{invitedGuest.index(doesntWant) + 1}: {doesntWant}")
+#
+# if input('Should this person to attend the party? "yes|no"') == 'no':
+#     invitedGuest.remove(doesntWant)
+# invitedGuest.sort()
+# for person in invitedGuest:
+#     print(f"{invitedGuest.index(person) + 1}: {person}")
 
 """
-
+Create a list with the names of four television
+gears and print them on separate lines. 
+Suggest user to enter a name one more gear and a position,
+where it should be inserted into the list. 
+Again print out a list in which all five gears are in new positions.
 """
+
+gears = ['On the road to the stars', 'A fine line', 'News', 'Top Gear in Burma']
+for gear in gears:
+    print(f'{gears.index(gear) + 1}: {gear}')
+
+newGear = input("Enter gear name: ")
+positsionGear = int(input("Enter gear position: ")) - 1
+gears.insert(positsionGear, newGear)
+for gear in gears:
+    print(f'{gears.index(gear) + 1}: {gear}')
