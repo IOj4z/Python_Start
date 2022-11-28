@@ -57,19 +57,35 @@ Ask the user which element he wants to exclude
 and remove it from list. Sort the rest data and output
 dictionary content.
 """
-userEnter = []
-for i in range(4, 0, -1):
-    favoriteDish = input(f'Enter favorite dish {i}: ')
-    userEnter.insert(i, favoriteDish)
+# userEnter = []
+# for i in range(4, 0, -1):
+#     favoriteDish = input(f'Enter favorite dish {i}: ')
+#     userEnter.insert(i, favoriteDish)
+#
+#
+# for item in userEnter:
+#     print(f"{userEnter.index(item) + 1}: {item}")
+#
+#
+# doesntLike = input('Which one want delete from list: ')
+# userEnter.remove(doesntLike)
+# userEnter.sort()
+#
+# for item in userEnter:
+#     print(f"{userEnter.index(item) + 1}: {item}")
 
+"""
+Ask the user to enter the names of the three people they want
+invite to a party, and save them to a list. 
+After they will all three numbers are entered, ask if the user wants to add more one name. 
+If the answer is yes, invite him to add names until you get a "no" response. 
+After answering "no" print the number of people invited to the party
+"""
+invitedGuest = []
+for i in range(4, 1, -1):
+    invitedGuest.append(input("Enter name to invite: "))
 
-for item in userEnter:
-    print(f"{userEnter.index(item) + 1}: {item}")
+while input("Want invite more 'yes|no': ") == 'yes':
+    invitedGuest.append(input("Enter name to invite: "))
 
-
-doesntLike = input('Which one want delete from list: ')
-userEnter.remove(doesntLike)
-userEnter.sort()
-
-for item in userEnter:
-    print(f"{userEnter.index(item) + 1}: {item}")
+print(f"{len(invitedGuest)} was invited person to the party.")
