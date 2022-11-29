@@ -56,8 +56,7 @@ whose element would be on a separate line.
 Create an array containing five numbers (two of which should be repeated). 
 Output the entire array. 
 Suggest user to enter one of array numbers, 
-and then print a message in which indicated how many times a number
-092 occurs in this array.
+and then print a message in which indicated how many times a number occurs in this array.
 """
 nums = array('i', [2, 3, 6, 4, 4])
 for i in nums:
