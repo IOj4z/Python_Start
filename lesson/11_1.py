@@ -63,6 +63,55 @@ Display the sales volumes for all regions for
 the name chosen by the user.
 """
 
-userName = input("Enter name: ")
-region = input("Enter region: ").upper()
-print(data[userName][region[0]])
+# userName = input("Enter name: ")
+# region = input("Enter region: ").upper()
+# print(data[userName][region[0]])
+
+"""
+Ask the user to enter the name, age, and shoe size for four people. 
+Ask for the name of one of them in the list 
+and print the values for his age and shoe size.
+"""
+# data_set = {}
+# for data in range(4, 0, -1):
+#     name = input("Enter name: ")
+#     age = input("Enter age: ")
+#     shoeSize = input("Enter shoeSize: ")
+#     data_set[name] = {'age': age, 'shoes': shoeSize}
+#
+#
+# chooseData = input("Enter name to get info: ")
+# print(data_set[chooseData])
+
+
+"""
+so that it displays the name and age for
+all the people on the list, but is not their shoe size.
+"""
+#
+# data_set = {}
+# for data in range(1, 0, -1):
+#     name = input("Enter name: ")
+#     age = input("Enter age: ")
+#     shoeSize = input("Enter shoeSize: ")
+#     data_set[name] = {'age': age, 'shoes': shoeSize}
+#
+# for name in data_set:
+#     print((name), data_set[name]['age'])
+
+"""
+After receiving the name, age and shoe size for four people
+prompt the user for the name of the person to be removed from the list. Delete
+this line and output the rest of the data broken down by lines.
+"""
+data_set = {}
+for data in range(4, 0, -1):
+    name = input("Enter name: ")
+    age = input("Enter age: ")
+    shoeSize = input("Enter shoeSize: ")
+    data_set[name] = {'age': age, 'shoes': shoeSize}
+
+delete = input("Enter name to remove from the data? ")
+del data_set[delete]
+for name in data_set:
+    print((name), data_set[name]['age'])
