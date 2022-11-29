@@ -70,15 +70,39 @@ the number entered by the user and the other is five random numbers.
 Concatenate these two arrays into one big one. Sort and output it
 that each number must output in a separate line.
 """
+#
+# userNums = array('i', [])
+# integers = array('i', [])
+# for i in range(5, 0, -1):
+#     integers.append(random.randint(1, 10000))
+# for i in range(3, 0, -1):
+#     userNums.append(int(input('Enter number: ')))
+#
+# integers.extend(userNums)
+# sorting = sorted(integers)
+# for i in sorting:
+#     print(i)
 
+
+"""
+Offer the user  enter five numbers. 
+Sort them and output for user. 
+Offer to choose one of the numbers. 
+Delete selected number from the original array and save it in the new.
+"""
 userNums = array('i', [])
-integers = array('i', [])
+newArray = array('i', [])
 for i in range(5, 0, -1):
-    integers.append(random.randint(1, 10000))
-for i in range(3, 0, -1):
     userNums.append(int(input('Enter number: ')))
-
-integers.extend(userNums)
-sorting = sorted(integers)
+sorting = sorted(userNums)
 for i in sorting:
     print(i)
+
+chooseNum = int(input('Choose number: '))
+newArray.append(chooseNum)
+userNums.remove(chooseNum)
+sorting = sorted(userNums)
+for i in sorting:
+    print(i)
+
+
