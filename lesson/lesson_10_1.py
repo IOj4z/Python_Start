@@ -90,19 +90,37 @@ Sort them and output for user.
 Offer to choose one of the numbers. 
 Delete selected number from the original array and save it in the new.
 """
-userNums = array('i', [])
-newArray = array('i', [])
-for i in range(5, 0, -1):
-    userNums.append(int(input('Enter number: ')))
-sorting = sorted(userNums)
-for i in sorting:
-    print(i)
+# userNums = array('i', [])
+# newArray = array('i', [])
+# for i in range(5, 0, -1):
+#     userNums.append(int(input('Enter number: ')))
+# sorting = sorted(userNums)
+# for i in sorting:
+#     print(i)
+#
+# chooseNum = int(input('Choose number: '))
+# newArray.append(chooseNum)
+# userNums.remove(chooseNum)
+# sorting = sorted(userNums)
+# for i in sorting:
+#     print(i)
 
-chooseNum = int(input('Choose number: '))
-newArray.append(chooseNum)
-userNums.remove(chooseNum)
-sorting = sorted(userNums)
-for i in sorting:
-    print(i)
+"""
+Output an array of five numbers. 
+Offer the user choose one of them. 
+After after the number is chosen, print its position in the array. 
+If the user enters a value that is missing in an array, 
+offer it choose again until a valid value is selected.
+"""
+nums = array('i', [2, 3, 6, 4, 4])
+print(nums)
+while True:
+    userChooseIndex = int(input('Choose one of numbers: '))
+    if userChooseIndex in nums:
+        break
+    else:
+        print("Not in array")
 
+chossedIndex = nums.index(userChooseIndex)
 
+print(f"{chossedIndex + 1}: {userChooseIndex} ")
