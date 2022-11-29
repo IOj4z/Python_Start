@@ -39,15 +39,28 @@ After five numbers have been successfully added to the array,
 print the message "Thank you" and output an array, each
 whose element would be on a separate line.
 """
-userNum = array('i', [])
-count = 0
-while count != 5:
-    userEnter = int(input('Enter number: '))
-    if 10 >= userEnter <= 20:
-        userNum.append(userEnter)
-        count += 1
-    else:
-        print('Outside the range')
-print('Thank you')
-for i in userNum:
+# userNum = array('i', [])
+# count = 0
+# while count != 5:
+#     userEnter = int(input('Enter number: '))
+#     if 10 >= userEnter <= 20:
+#         userNum.append(userEnter)
+#         count += 1
+#     else:
+#         print('Outside the range')
+# print('Thank you')
+# for i in userNum:
+#     print(i)
+
+"""
+Create an array containing five numbers (two of which should be repeated). 
+Output the entire array. 
+Suggest user to enter one of array numbers, 
+and then print a message in which indicated how many times a number
+092 occurs in this array.
+"""
+nums = array('i', [2, 3, 6, 4, 4])
+for i in nums:
     print(i)
+userNum = int(input('Enter one is number: '))
+print(nums.count(userNum))
