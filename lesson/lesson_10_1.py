@@ -1,5 +1,6 @@
 import random
 from array import *
+import math
 
 """
 Prompt the user to enter whole numbers.
@@ -112,15 +113,35 @@ After after the number is chosen, print its position in the array.
 If the user enters a value that is missing in an array, 
 offer it choose again until a valid value is selected.
 """
-nums = array('i', [2, 3, 6, 4, 4])
-print(nums)
+# nums = array('i', [2, 3, 6, 4, 4])
+# print(nums)
+# while True:
+#     userChooseIndex = int(input('Choose one of numbers: '))
+#     if userChooseIndex in nums:
+#         break
+#     else:
+#         print("Not in array")
+#
+# chossedIndex = nums.index(userChooseIndex)
+#
+# print(f"{chossedIndex + 1}: {userChooseIndex} ")
+
+"""
+Create an array of five numbers from 10 to 100, each of which contains two signs in the fractional part. 
+Prompt the user to enter an integer from 2 to 5. 
+If the user enters value out of range, 
+display an error message and prompt you to select again until a valid value is entered meaning. 
+Divide each of the numbers in the array to the number entered by the user and output responses to two decimal places.
+"""
+nums = array('f', [62.12, 73.36, 46.45, 14.78, 14.69])
+
 while True:
-    userChooseIndex = int(input('Choose one of numbers: '))
-    if userChooseIndex in nums:
-        break
+    userNum = int(input('Enter an integer from 2 to 5: '))
+    if 2 > userNum > 5:
+        print("Incorrect value, try again.")
     else:
-        print("Not in array")
+        break
 
-chossedIndex = nums.index(userChooseIndex)
-
-print(f"{chossedIndex + 1}: {userChooseIndex} ")
+for i in nums:
+    answer = nums[i] / userNum
+    print(round(answer, 2))
