@@ -79,72 +79,158 @@ the menu should be displayed again without having to restart the program.
 The program should be as simple and easy to use as possible.
 """
 
+#
+# def add_name():
+#     name = input('Enter name: ')
+#     names.append(name)
+#     return names
+#
+#
+# def change_name():
+#     x = 0
+#     for i in names:
+#         print(f"{x}) {i}")
+#         x = x + 1
+#
+#     editName = int(input('Enter num for edit: '))
+#     names[editName] = input('Enter new name : ')
+#     return names
+#
+#
+# def remove_name():
+#     x = 0
+#     for i in names:
+#         print(f"{x}) {i}")
+#         x = x + 1
+#     deletName = int(input('Enter num for delete: '))
+#     del names[deletName]
+#     return names
+#
+#
+# def display_names():
+#     for i in names:
+#         print(i)
+#     print()
+#
+#
+# def done_program():
+#     print('Good bye!')
+#     return True
+#
+#
+# def main():
+#     command = ('Add_name', 'Edit name', 'Remove name', 'Display list', 'Exit program')
+#     x = 1
+#     while True:
+#         for c in command:
+#             if x > 5:
+#                 x = 1
+#             print(f"{x}) {c}")
+#             x = x + 1
+#         userCommand = int(input('Choose command num: '))
+#         match (userCommand):
+#             case 1:
+#                 names = add_name()
+#             case 2:
+#                 names = change_name()
+#             case 3:
+#                 names = remove_name()
+#             case 4:
+#                 names = display_names()
+#             case 5:
+#                 if done_program():
+#                     break
+#             case _:
+#                 print("Incorrect option: ")
+#
+#
+# names = []
+#
+# if __name__ == '__main__':
+#     main()
 
-def add_name():
+
+"""
+Create the following menu:
+    1) Add to file
+    2) View all records
+    3) Quit program
+    
+    Enter the number of your selection:
+        
+If the user selected option 1, the data should be added to the Salaries.csv file containing names and salaries.
+If the user selected option 2, the program outputs all entries from the Salaries.csv file. 
+If the user has selected option 3, the program ends. 
+If a non-existent option is selected, an error message is displayed. 
+User returns to the menu again and again until selected
+option 3.
+"""
+
+
+def add_file():
     name = input('Enter name: ')
-    names.append(name)
-    return names
+    salary = input('Enter salary: ')
+    file = open('Salaries.csv', 'a')
+    newrec = name + "," + salary + '\n'
+    file.write(newrec)
+    file.close()
 
 
-def change_name():
+def view_recors():
+    file = csv.reader(open('Salaries.csv'))
+    for i in file:
+        print(f"name: {i[0]}, salary: {i[1]}")
+    print('\n' * 3)
+
+
+def delete_recors():
+    file = list(csv.reader(open('Salaries.csv')))
     x = 0
-    for i in names:
-        print(f"{x}) {i}")
+    for i in file:
+        print(f"{x}) name: {i[0]}, salary: {str(i[1])}")
         x = x + 1
 
-    editName = int(input('Enter num for edit: '))
-    names[editName] = input('Enter new name : ')
-    return names
+    tmp = []
+    for i in file:
+        tmp.append(i)
+    delRow = int(input('Enter row num to delete: '))
+    del tmp[delRow]
+    file = open('Salaries.csv', 'w')
+    for i in tmp:
+        newrec = i[0] + "," + i[1]
+        file.write(newrec)
+    file.close()
+    print('\n' * 3)
 
 
-def remove_name():
-    x = 0
-    for i in names:
-        print(f"{x}) {i}")
-        x = x + 1
-    deletName = int(input('Enter num for delete: '))
-    del names[deletName]
-    return names
-
-
-def display_names():
-    for i in names:
-        print(i)
-    print()
-
-
-def done_program():
+def quit_program():
     print('Good bye!')
-    return True
+    print('\n' * 3)
 
 
 def main():
-    command = ('Add_name', 'Edit name', 'Remove name', 'Display list', 'Exit program')
+    command = ('Add to file', 'View all records', 'Delete a record', 'Quit program')
     x = 1
     while True:
         for c in command:
-            if x > 5:
+            if x > 4:
                 x = 1
             print(f"{x}) {c}")
             x = x + 1
         userCommand = int(input('Choose command num: '))
         match (userCommand):
             case 1:
-                names = add_name()
+                add_file()
             case 2:
-                names = change_name()
+                view_recors()
             case 3:
-                names = remove_name()
+                delete_recors()
             case 4:
-                names = display_names()
-            case 5:
-                if done_program():
+                if quit_program():
                     break
             case _:
                 print("Incorrect option: ")
 
-
-names = []
 
 if __name__ == '__main__':
     main()
