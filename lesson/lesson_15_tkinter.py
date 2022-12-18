@@ -85,3 +85,14 @@ textbox2['bg'] = 'white'
 textbox2['fg'] = 'black'
 
 window.mainloop()
+
+
+"""
+Write a program that prompts the user to enter a number.
+in the text field. When the user presses the button, 
+this number is added to the accumulated amount and displayed in another field. 
+input can repeat as many times as you like discretion of the user, 
+while input data will be added to the amount. 
+The window should contain one more button that resets the accumulated amount and erases
+the contents of the original field to  the user could start typing again.
+"""
