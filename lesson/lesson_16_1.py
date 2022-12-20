@@ -142,13 +142,26 @@ output the title, publication date and author's name for
 all books by authors born in the specified location.
 """
 
-cursor.execute('SELECT * FROM authors')
-for x in cursor.fetchall():
-    print('author: ' + x[0] + ' birth place: ' + x[1])
+# cursor.execute('SELECT * FROM authors')
+# for x in cursor.fetchall():
+#     print('author: ' + x[0] + ' birth place: ' + x[1])
+#
+# author_bplace = input('Enter author birth place: ')
+#
+# cursor.execute('SELECT books.title, authors.name, authors.place_bith, books.date_pub FROM books, '
+#                'authors WHERE authors.name = books.author AND authors.place_bith=?', [author_bplace])
+# for x in cursor.fetchall():
+#     print(x)
 
-author_bplace = input('Enter author birth place: ')
 
-cursor.execute('SELECT books.title, authors.name, authors.place_bith, books.date_pub FROM books, '
-               'authors WHERE authors.name = books.author AND authors.place_bith=?', [author_bplace])
+"""
+Prompt the user to enter a year. 
+Print all books published after this year; 
+list should be sorted by year of publication.
+"""
+
+date = input('Enter date of publication: ')
+cursor.execute("""SELECT books.title, books.author, 
+books.date_pub FROM books WHERE date_pub > ? ORDER BY date_pub""", [date])
 for x in cursor.fetchall():
     print(x)
