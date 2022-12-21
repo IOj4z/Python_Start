@@ -160,8 +160,36 @@ Print all books published after this year;
 list should be sorted by year of publication.
 """
 
-date = input('Enter date of publication: ')
-cursor.execute("""SELECT books.title, books.author, 
-books.date_pub FROM books WHERE date_pub > ? ORDER BY date_pub""", [date])
-for x in cursor.fetchall():
+# date = input('Enter date of publication: ')
+# cursor.execute("""SELECT books.title, books.author,
+# books.date_pub FROM books WHERE date_pub > ? ORDER BY date_pub""", [date])
+# for x in cursor.fetchall():
+#     print(x)
+
+
+"""
+Prompt the user to enter the author's name.
+Save all books by this author in a text file; 
+fields must be separated by hyphens, so the output should look something like this:
+5 - Murder on the Orient Express - Agatha Christie - 1934
+8 - The murder on the links - Agatha Christie - 1923
+10 - The secret adversary - Agatha Christie - 1921
+11 - The seven dials mystery - Agatha Christie - 1929
+Open the text file and make sure the program works correctly.
+"""
+
+author_name = input('Enter author name: ')
+books_doc = open('Books.txt', 'w')
+cursor.execute("""SELECT * FROM books WHERE author=?""", [author_name])
+for a in cursor.fetchall():
+    books_doc.write(str(a[0]) + ' - ' + str(a[1]) + ' - ' + str(a[2]) + ' - ' + str(a[3]) + '\n')
+
+books_doc.close()
+
+books_doc = open('Books.txt', 'r')
+books_doc.readable()
+for x in books_doc:
     print(x)
+
+books_doc.close()
+db.close()
