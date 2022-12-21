@@ -1,4 +1,5 @@
 import sqlite3
+from tkinter import *
 
 """
 Create a SQL database named PhoneBook. 
@@ -112,8 +113,8 @@ BookInfo=[Authors['Name':['Agatha Christie', 'Cecelia Ahern', 'J. K. Rowling','O
 'Place of Birth':['Torquay', 'Dublin','Bristol','Dublin']]
 """
 
-with sqlite3.connect('bookinfo.db') as db:
-    cursor = db.cursor()
+# with sqlite3.connect('bookinfo.db') as db:
+#     cursor = db.cursor()
 #
 # cursor.execute("""CREATE TABLE IF NOT EXISTS authors(
 #         name text NOT NULL,
@@ -178,18 +179,73 @@ fields must be separated by hyphens, so the output should look something like th
 Open the text file and make sure the program works correctly.
 """
 
-author_name = input('Enter author name: ')
-books_doc = open('Books.txt', 'w')
-cursor.execute("""SELECT * FROM books WHERE author=?""", [author_name])
-for a in cursor.fetchall():
-    books_doc.write(str(a[0]) + ' - ' + str(a[1]) + ' - ' + str(a[2]) + ' - ' + str(a[3]) + '\n')
+# author_name = input('Enter author name: ')
+# books_doc = open('Books.txt', 'w')
+# cursor.execute("""SELECT * FROM books WHERE author=?""", [author_name])
+# for a in cursor.fetchall():
+#     books_doc.write(str(a[0]) + ' - ' + str(a[1]) + ' - ' + str(a[2]) + ' - ' + str(a[3]) + '\n')
+#
+# books_doc.close()
+#
+# books_doc = open('Books.txt', 'r')
+# books_doc.readable()
+# for x in books_doc:
+#     print(x)
+#
+# books_doc.close()
+# db.close()
 
-books_doc.close()
 
-books_doc = open('Books.txt', 'r')
-books_doc.readable()
-for x in books_doc:
-    print(x)
+"""
+When you click the Add button, the data should be stored in the SQL database named TestScores. 
+The Clear button clears the current contents of the window.
+"""
 
-books_doc.close()
+
+def store_row():
+    newname = sname.get()
+    newgrade = sgrade.get()
+    cursor.execute("""INSERT INTO scores (name,score) VALUES (?, ?)""", [newname, newgrade])
+    db.commit()
+    sname.delete(0, END)
+    sgrade.delete(0, END)
+    sname.focus()
+
+
+def clear():
+    sname.delete(0, END)
+    sgrade.delete(0, END)
+    sname.focus()
+
+
+with sqlite3.connect('testscore.db') as db:
+    cursor = db.cursor()
+
+cursor.execute("""CREATE TABLE IF NOT EXISTS scores(
+        id integer PRIMARY KEY,
+        name text NOT NULL,
+        score integer
+);""")
+
+window = Tk()
+window.title('TestScores')
+window.geometry('450x200')
+
+label1 = Label(text="Enter student’s name: ")
+label1.place(x=30, y=35)
+sname = Entry(text="")
+sname.place(x=180, y=35, width=200, height=25)
+sname.focus()
+
+label2 = Label(text="Enter student’s grade: ")
+label2.place(x=30, y=80)
+sgrade = Entry(text="")
+sgrade.place(x=180, y=80, width=200, height=25)
+sgrade.focus()
+
+addbtn = Button(text="Add", command=store_row)
+addbtn.place(x=180, y=120, width=75, height=25)
+clearbtn = Button(text="Clear", command=clear)
+clearbtn.place(x=250, y=120, width=75, height=25)
+window.mainloop()
 db.close()
